@@ -62,46 +62,13 @@ export function TraversalOutputComponentKeyboardFlat(
   };
 
   const handleKeyPress = (event: KeyboardEvent) => {
-    // if (event.key === "Shift") {
-    //   const handleArrowKey = (arrowEvent: KeyboardEvent) => {
-    //     if (arrowEvent.key === "ArrowUp") {
-    //       const parentSection = document.getElementById(`parents-group`);
-    //       if (parentSection) {
-    //         parentSection.focus();
-    //       }
-    //       arrowEvent.preventDefault();
-    //     } else if (arrowEvent.key === "ArrowDown") {
-    //       // Directly navigate to first child if children exist
-    //       // If not, then select entire group and announce that no children exist
-
-    //       const firstChildId = currentNode().children[0];
-
-    //       if (firstChildId) {
-    //         setCurrentNodeId(firstChildId);
-    //         const newSection = document.getElementById(`info-${firstChildId}`);
-    //         if (newSection) {
-    //           newSection.focus();
-    //         }
-    //       } else {
-    //         const childSection = document.getElementById(`children-group`);
-    //         if (childSection) {
-    //           childSection.focus();
-    //         }
-    //       }
-    //       arrowEvent.preventDefault();
-    //     }
-    //   };
-
-    //   window.addEventListener("keydown", handleArrowKey, { once: true });
-    // }
-
-    if (event.key === "u") {
+    if (event.key === "w") {
       const parentSection = document.getElementById(`parents-group`);
       if (parentSection) {
         parentSection.focus();
       }
       event.preventDefault();
-    } else if (event.key === "d") {
+    } else if (event.key === "s") {
       // Directly navigate to first child if children exist
       // If not, then select entire group and announce that no children exist
 
@@ -120,7 +87,7 @@ export function TraversalOutputComponentKeyboardFlat(
         }
       }
       event.preventDefault();
-    } else if (event.key === "t") {
+    } else if (event.key === "a") {
       const titleSection = document.getElementById(`home`);
       titleSection?.focus();
     } else if (event.key === "Backspace") {
