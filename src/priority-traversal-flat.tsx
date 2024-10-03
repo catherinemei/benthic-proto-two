@@ -62,13 +62,13 @@ export function TraversalOutputComponentKeyboardFlat(
   };
 
   const handleKeyPress = (event: KeyboardEvent) => {
-    if (event.key === "w") {
+    if (event.key === "ArrowUp" && event.shiftKey) {
       const parentSection = document.getElementById(`parents-group`);
       if (parentSection) {
         parentSection.focus();
       }
       event.preventDefault();
-    } else if (event.key === "s") {
+    } else if (event.key === "ArrowDown" && event.shiftKey) {
       // Directly navigate to first child if children exist
       // If not, then select entire group and announce that no children exist
 
