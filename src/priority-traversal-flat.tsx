@@ -35,7 +35,7 @@ export function TraversalOutputComponentKeyboardFlat(
     );
 
   // Keeps track of traversal history for undo
-  const [history, setHistory] = createSignal<string[]>([]);
+  const [history, setHistory] = createSignal<string[]>(["0"]);
 
   const currentNode = createMemo(() => {
     if (currentNodeId() !== null) {
@@ -45,7 +45,7 @@ export function TraversalOutputComponentKeyboardFlat(
   });
 
   const handleNodeClick = (oldId: string, newId: string) => {
-    setHistory((prev) => [...prev, oldId]);
+    setHistory((prev) => [...prev, newId]);
     setCurrentNodeId(newId);
 
     // Moves screen reader focus
@@ -76,6 +76,8 @@ export function TraversalOutputComponentKeyboardFlat(
 
       if (firstChildId) {
         setCurrentNodeId(firstChildId);
+        setHistory((prev) => [...prev, firstChildId]);
+
         const newSection = document.getElementById(`info-${firstChildId}`);
         if (newSection) {
           newSection.focus();
@@ -87,7 +89,7 @@ export function TraversalOutputComponentKeyboardFlat(
         }
       }
       event.preventDefault();
-    } else if (event.key === "a") {
+    } else if (event.key === "h") {
       const titleSection = document.getElementById(`home`);
 
       const lastNodeId = history()[history().length - 1];
@@ -101,7 +103,13 @@ export function TraversalOutputComponentKeyboardFlat(
     } else if (event.key === "Backspace") {
       setHistory((prev) => {
         const newHistory = [...prev];
-        const previousNodeId = newHistory.pop();
+
+        if (newHistory.length <= 1) {
+          return newHistory;
+        }
+
+        const currentNode = newHistory.pop();
+        const previousNodeId = newHistory[newHistory.length - 1];
 
         if (previousNodeId) {
           // used to announce undo action
@@ -130,10 +138,6 @@ export function TraversalOutputComponentKeyboardFlat(
     ) {
       const focusedElement = document.activeElement as HTMLElement;
       const focusedElementId = focusedElement?.id;
-      const focusableGroupIds = ["parents", "children"];
-      const currentGroupId = focusableGroupIds.find((groupId) =>
-        focusedElementId.startsWith(groupId)
-      );
 
       if (focusedElementId.startsWith("info-") || focusedElementId === "home") {
         const buttonsInGroup = Array.from(
@@ -158,12 +162,19 @@ export function TraversalOutputComponentKeyboardFlat(
         const newNodeId = buttonsInGroup[newIndex]?.id.split("info-")[1];
         if (newNodeId) {
           setCurrentNodeId(newNodeId);
+
+          setHistory((prev) => {
+            const newHistory = [...prev];
+            newHistory.pop();
+            newHistory.push(newNodeId);
+            return newHistory;
+          });
         }
         buttonsInGroup[newIndex]?.focus();
         event.preventDefault();
-      } else if (currentGroupId) {
+      } else if (focusedElementId.startsWith("parents")) {
         const buttonsInGroup = Array.from(
-          document.querySelectorAll(`#${currentGroupId}-group button`)
+          document.querySelectorAll(`#parents-group button`)
         ) as HTMLElement[];
         const currentIndex = buttonsInGroup.indexOf(focusedElement);
         if (
