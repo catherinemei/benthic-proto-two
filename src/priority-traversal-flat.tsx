@@ -288,7 +288,7 @@ export function HypergraphNodeComponentKeyboardOnly(
           return priorityDifference;
         }
         // If priorities are the same, sort by ID (lexicographical order)
-        return a.id.localeCompare(b.id);
+        return Number(a.id) - Number(b.id);
       });
     return adjacentNodes;
   });

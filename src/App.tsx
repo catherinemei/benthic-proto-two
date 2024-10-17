@@ -1,12 +1,12 @@
 import type { Component } from "solid-js";
 import { TraversalOutputComponentKeyboardFlat } from "./priority-traversal-flat";
 
-import { stackedBarChartHypergraph } from "./input-data";
+import { lineGraphHypergraph } from "./input-line";
 
 const App: Component = () => {
   return (
     <TraversalOutputComponentKeyboardFlat
-      nodeGraph={stackedBarChartHypergraph}
+      nodeGraph={lineGraphHypergraph}
       showHypergraph={false}
     />
   );
