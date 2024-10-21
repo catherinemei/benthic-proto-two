@@ -253,9 +253,9 @@ export const lineGraphHypergraph: Hypergraph = {
     children: ["18", "20", "22", "24", "26", "28", "30", "32", "34", "36", "38", "40"],
     priority: 3,
   },
-    "17": {
+  "17": {
     id: "17",
-    displayName: "16 Celsius",
+    displayName: "January, Reggane, 16 Celsius",
     description:
       "Month: January. City: Reggane. Average temperature: 16 Celsius.",
     descriptionTokens: {
@@ -270,7 +270,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "18": {
     id: "18",
-    displayName: "-2.9 Celsius",
+    displayName: "January, Tallinn, -2.9 Celsius",
     description:
       "Month: January. City: Tallinn. Average temperature: -2.9 Celsius.",
     descriptionTokens: {
@@ -285,7 +285,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "19": {
     id: "19",
-    displayName: "18.2 Celsius",
+    displayName: "February, Reggane, 18.2 Celsius",
     description:
       "Month: February. City: Reggane. Average temperature: 18.2 Celsius.",
     descriptionTokens: {
@@ -300,7 +300,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "20": {
     id: "20",
-    displayName: "-3.6 Celsius",
+    displayName: "February, Tallinn, -3.6 Celsius",
     description:
       "Month: February. City: Tallinn. Average temperature: -3.6 Celsius.",
     descriptionTokens: {
@@ -315,7 +315,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "21": {
     id: "21",
-    displayName: "23.1 Celsius",
+    displayName: "March, Reggane, 23.1 Celsius",
     description:
       "Month: March. City: Reggane. Average temperature: 23.1 Celsius.",
     descriptionTokens: {
@@ -330,7 +330,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "22": {
     id: "22",
-    displayName: "-0.6 Celsius",
+    displayName: "March, Tallinn, -0.6 Celsius",
     description:
       "Month: March. City: Tallinn. Average temperature: -0.6 Celsius.",
     descriptionTokens: {
@@ -345,7 +345,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "23": {
     id: "23",
-    displayName: "27.9 Celsius",
+    displayName: "April, Reggane, 27.9 Celsius",
     description:
       "Month: April. City: Reggane. Average temperature: 27.9 Celsius.",
     descriptionTokens: {
@@ -360,7 +360,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "24": {
     id: "24",
-    displayName: "4.8 Celsius",
+    displayName: "April, Tallinn, 4.8 Celsius",
     description:
       "Month: April. City: Tallinn. Average temperature: 4.8 Celsius.",
     descriptionTokens: {
@@ -375,7 +375,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "25": {
     id: "25",
-    displayName: "32.2 Celsius",
+    displayName: "May, Reggane, 32.2 Celsius",
     description:
       "Month: May. City: Reggane. Average temperature: 32.2 Celsius.",
     descriptionTokens: {
@@ -390,7 +390,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "26": {
     id: "26",
-    displayName: "10.2 Celsius",
+    displayName: "May, Tallinn, 10.2 Celsius",
     description:
       "Month: May. City: Tallinn. Average temperature: 10.2 Celsius.",
     descriptionTokens: {
@@ -405,7 +405,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "27": {
     id: "27",
-    displayName: "36.4 Celsius",
+    displayName: "June, Reggane, 36.4 Celsius",
     description:
       "Month: June. City: Reggane. Average temperature: 36.4 Celsius.",
     descriptionTokens: {
@@ -420,7 +420,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "28": {
     id: "28",
-    displayName: "14.5 Celsius",
+    displayName: "June, Tallinn, 14.5 Celsius",
     description:
       "Month: June. City: Tallinn. Average temperature: 14.5 Celsius.",
     descriptionTokens: {
@@ -435,7 +435,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "29": {
     id: "29",
-    displayName: "39.8 Celsius",
+    displayName: "July, Reggane, 39.8 Celsius",
     description:
       "Month: July. City: Reggane. Average temperature: 39.8 Celsius.",
     descriptionTokens: {
@@ -450,7 +450,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "30": {
     id: "30",
-    displayName: "17.6 Celsius",
+    displayName: "July, Tallinn, 17.6 Celsius",
     description:
       "Month: July. City: Tallinn. Average temperature: 17.6 Celsius.",
     descriptionTokens: {
@@ -465,7 +465,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "31": {
     id: "31",
-    displayName: "38.4 Celsius",
+    displayName: "August, Reggane, 38.4 Celsius",
     description:
       "Month: August. City: Reggane. Average temperature: 38.4 Celsius.",
     descriptionTokens: {
@@ -480,7 +480,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "32": {
     id: "32",
-    displayName: "16.5 Celsius",
+    displayName: "August, Tallinn, 16.5 Celsius",
     description:
       "Month: August. City: Tallinn. Average temperature: 16.5 Celsius.",
     descriptionTokens: {
@@ -495,7 +495,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "33": {
     id: "33",
-    displayName: "35.5 Celsius",
+    displayName: "September, Reggane, 35.5 Celsius",
     description:
       "Month: September. City: Reggane. Average temperature: 35.5 Celsius.",
     descriptionTokens: {
@@ -510,7 +510,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "34": {
     id: "34",
-    displayName: "12 Celsius",
+    displayName: "September, Tallinn, 12 Celsius",
     description:
       "Month: September. City: Tallinn. Average temperature: 12 Celsius.",
     descriptionTokens: {
@@ -525,7 +525,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "35": {
     id: "35",
-    displayName: "29.2 Celsius",
+    displayName: "October, Reggane, 29.2 Celsius",
     description:
       "Month: October. City: Reggane. Average temperature: 29.2 Celsius.",
     descriptionTokens: {
@@ -540,7 +540,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "36": {
     id: "36",
-    displayName: "6.5 Celsius",
+    displayName: "October, Tallinn, 6.5 Celsius",
     description:
       "Month: October. City: Tallinn. Average temperature: 6.5 Celsius.",
     descriptionTokens: {
@@ -555,7 +555,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "37": {
     id: "37",
-    displayName: "22 Celsius",
+    displayName: "November, Reggane, 22 Celsius",
     description:
       "Month: November. City: Reggane. Average temperature: 22 Celsius.",
     descriptionTokens: {
@@ -570,7 +570,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "38": {
     id: "38",
-    displayName: "2 Celsius",
+    displayName: "November, Tallinn, 2 Celsius",
     description:
       "Month: November. City: Tallinn. Average temperature: 2 Celsius.",
     descriptionTokens: {
@@ -585,7 +585,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "39": {
     id: "39",
-    displayName: "17.8 Celsius",
+    displayName: "December, Reggane, 17.8 Celsius",
     description:
       "Month: December. City: Reggane. Average temperature: 17.8 Celsius.",
     descriptionTokens: {
@@ -600,7 +600,7 @@ export const lineGraphHypergraph: Hypergraph = {
   },
   "40": {
     id: "40",
-    displayName: "-0.9 Celsius",
+    displayName: "December, Tallinn, -0.9 Celsius",
     description:
       "Month: December. City: Tallinn. Average temperature: -0.9 Celsius.",
     descriptionTokens: {
