@@ -45,6 +45,10 @@ export function TraversalOutputComponentKeyboardFlat(
   });
 
   const handleNodeClick = (oldId: string, newId: string) => {
+    if (oldId === newId) {
+      return;
+    }
+
     setHistory((prev) => [...prev, newId]);
     setCurrentNodeId(newId);
 
@@ -81,26 +85,40 @@ export function TraversalOutputComponentKeyboardFlat(
         if (parentSection) {
           parentSection.focus();
         }
+      } else if (focusedElementId.startsWith("children")) {
+        const currentNode = document.getElementById(`info-${currentNodeId()}`);
+        if (currentNode) {
+          currentNode.focus();
+        }
       }
       event.preventDefault();
     } else if (event.key === "ArrowDown" && event.shiftKey) {
-      // Directly navigate to first child if children exist
-      // If not, then select entire group and announce that no children exist
+      const focusedElement = document.activeElement as HTMLElement;
+      const focusedElementId = focusedElement?.id;
 
-      const firstChildId = currentNode().children[0];
-
-      if (firstChildId) {
-        setCurrentNodeId(firstChildId);
-        setHistory((prev) => [...prev, firstChildId]);
-
-        const newSection = document.getElementById(`info-${firstChildId}`);
-        if (newSection) {
-          newSection.focus();
+      if (focusedElementId.startsWith("parents")) {
+        const currentNode = document.getElementById(`info-${currentNodeId()}`);
+        if (currentNode) {
+          currentNode.focus();
         }
       } else {
-        const childSection = document.getElementById(`children-group`);
-        if (childSection) {
-          childSection.focus();
+        // Directly navigate to first child if children exist
+        // If not, then select entire group and announce that no children exist
+        const firstChildId = currentNode().children[0];
+
+        if (firstChildId) {
+          setCurrentNodeId(firstChildId);
+          setHistory((prev) => [...prev, firstChildId]);
+
+          const newSection = document.getElementById(`info-${firstChildId}`);
+          if (newSection) {
+            newSection.focus();
+          }
+        } else {
+          const childSection = document.getElementById(`children-group`);
+          if (childSection) {
+            childSection.focus();
+          }
         }
       }
       event.preventDefault();
@@ -211,7 +229,7 @@ export function TraversalOutputComponentKeyboardFlat(
     } else if (event.key === "Enter") {
       const focusedElement = document.activeElement as HTMLElement;
 
-      if (focusedElement && focusedElement.tagName === "BUTTON") {
+      if (focusedElement) {
         focusedElement.click();
         event.preventDefault();
       }
