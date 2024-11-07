@@ -63,9 +63,24 @@ export function TraversalOutputComponentKeyboardFlat(
 
   const handleKeyPress = (event: KeyboardEvent) => {
     if (event.key === "ArrowUp" && event.shiftKey) {
-      const parentSection = document.getElementById(`parents-group`);
-      if (parentSection) {
-        parentSection.focus();
+      // Focused element will be in "home" group
+      // if trying to select parent on upwards navigation
+      // Focused element will be in "parents" group otherwise
+      const focusedElement = document.activeElement as HTMLElement;
+      const focusedElementId = focusedElement?.id;
+
+      if (focusedElementId.startsWith("parents")) {
+        // Same as selecting parent
+        focusedElement.click();
+        event.preventDefault();
+      } else if (
+        focusedElementId.startsWith("info-") ||
+        focusedElementId === "home"
+      ) {
+        const parentSection = document.getElementById(`parents-group`);
+        if (parentSection) {
+          parentSection.focus();
+        }
       }
       event.preventDefault();
     } else if (event.key === "ArrowDown" && event.shiftKey) {
@@ -140,11 +155,11 @@ export function TraversalOutputComponentKeyboardFlat(
       const focusedElementId = focusedElement?.id;
 
       if (focusedElementId.startsWith("info-") || focusedElementId === "home") {
-        const buttonsInGroup = Array.from(
-          document.querySelectorAll(`#home button`)
+        const elmInGroup = Array.from(
+          document.querySelectorAll(`#home li`)
         ) as HTMLElement[];
+        const currentIndex = elmInGroup.indexOf(focusedElement);
 
-        const currentIndex = buttonsInGroup.indexOf(focusedElement);
         let newIndex = currentIndex;
 
         if (
@@ -154,12 +169,12 @@ export function TraversalOutputComponentKeyboardFlat(
           newIndex = currentIndex - 1;
         } else if (
           (event.key === "ArrowRight" || event.key === "ArrowDown") &&
-          currentIndex < buttonsInGroup.length - 1
+          currentIndex < elmInGroup.length - 1
         ) {
           newIndex = currentIndex + 1;
         }
 
-        const newNodeId = buttonsInGroup[newIndex]?.id.split("info-")[1];
+        const newNodeId = elmInGroup[newIndex]?.id.split("info-")[1];
         if (newNodeId) {
           setCurrentNodeId(newNodeId);
 
@@ -170,24 +185,24 @@ export function TraversalOutputComponentKeyboardFlat(
             return newHistory;
           });
         }
-        buttonsInGroup[newIndex]?.focus();
+        elmInGroup[newIndex]?.focus();
         event.preventDefault();
       } else if (focusedElementId.startsWith("parents")) {
-        const buttonsInGroup = Array.from(
-          document.querySelectorAll(`#parents-group button`)
+        const elmInGroup = Array.from(
+          document.querySelectorAll(`#parents-group li`)
         ) as HTMLElement[];
-        const currentIndex = buttonsInGroup.indexOf(focusedElement);
+        const currentIndex = elmInGroup.indexOf(focusedElement);
         if (
           (event.key === "ArrowLeft" || event.key === "ArrowUp") &&
           currentIndex > 0
         ) {
-          buttonsInGroup[currentIndex - 1].focus();
+          elmInGroup[currentIndex - 1].focus();
           event.preventDefault();
         } else if (
           (event.key === "ArrowRight" || event.key === "ArrowDown") &&
-          currentIndex < buttonsInGroup.length - 1
+          currentIndex < elmInGroup.length - 1
         ) {
-          buttonsInGroup[currentIndex + 1].focus();
+          elmInGroup[currentIndex + 1].focus();
           event.preventDefault();
         } else {
           event.preventDefault();
@@ -295,110 +310,74 @@ export function HypergraphNodeComponentKeyboardOnly(
 
   return (
     <div style={{ padding: "20px" }}>
-      <div id={`home`} tabindex="0">
+      <ul id="home" tabindex="0">
         <For
           each={sortAdjacents()}
-          fallback={
-            <span
-              style={{ color: "grey" }}
-              aria-label={"There are no adjacent nodes"}
-              id={`info-none`}
-            >
-              {" "}
-              None
-            </span>
-          }
+          fallback={<li style={{ color: "grey" }}>None</li>}
         >
           {(adjacent, idx) => (
-            <button
-              onClick={() => props.onNodeClick(props.node.id, adjacent.id)}
-              style={{ "margin-right": "5px" }}
+            <li
               aria-label={`Node ${idx() + 1} of ${sortAdjacents().length}; ${
                 adjacent.displayName
               }; ${adjacent.descriptionTokens?.longDescription}`}
               id={`info-${adjacent.id}`}
+              onClick={() => props.onNodeClick(props.node.id, adjacent.id)}
+              tabindex="0"
             >
-              <span aria-hidden={true}>{adjacent.displayName}</span>
-            </button>
+              <span aria-hidden="true">{`${adjacent.displayName}; ${adjacent.descriptionTokens?.longDescription}`}</span>
+            </li>
           )}
         </For>
-      </div>
-      <div
-        id={`parents-group`}
-        style={{ "margin-top": "10px" }}
-        aria-label={`${
-          props.node.parents.length
-        } parent relations; ${collectParentNames()}`}
+      </ul>
+
+      <ul
+        id="parents-group"
+        aria-label={
+          props.node.parents.length == 0
+            ? `${props.node.displayName} belongs to 0 groups`
+            : `${props.node.displayName} belongs to (${collectParentNames()})`
+        }
         tabindex="0"
       >
-        <span style={{ "font-weight": "bold" }} aria-hidden={true}>
-          Parents{" "}
-        </span>
-        <For
-          each={sortedParents()}
-          fallback={
-            <span
-              style={{ color: "grey" }}
-              aria-label="There are no parent nodes"
-              id={`parents-${props.node.id}-0`}
-            >
-              {" "}
-              None
-            </span>
-          }
-        >
+        <span style={{ "font-weight": "bold" }}>Belongs to</span>
+        <For each={sortedParents()}>
           {(parent, idx) => (
-            <button
-              onClick={() => props.onNodeClick(props.node.id, parent.id)}
-              style={{ "margin-right": "5px" }}
-              aria-label={`Parent ${idx() + 1} of ${sortedParents().length}; ${
-                parent.displayName
-              }`}
+            <li
               id={`parents-${props.node.id}-${idx()}`}
+              aria-label={`${parent.displayName} group`}
+              onClick={() => props.onNodeClick(props.node.id, parent.id)}
+              tabIndex="0"
             >
-              <span aria-hidden={true}>{parent.displayName}</span>
-            </button>
+              <span aria-hidden="true">{parent.displayName} group</span>
+            </li>
           )}
         </For>
-      </div>
-      <div
-        style={{ "margin-top": "10px" }}
-        id={`children-group`}
-        aria-label={`${
-          props.node.children.length
-        } child relations; ${collectChildrenNames()}`}
+      </ul>
+
+      <ul
+        id="children-group"
+        aria-label={
+          props.node.children.length === 0
+            ? `${props.node.displayName} contains no nodes`
+            : `${props.node.displayName} contains (${collectChildrenNames()})`
+        }
         tabindex="0"
       >
         <span style={{ "font-weight": "bold" }} aria-hidden={true}>
-          Children{" "}
+          Contains
         </span>
-        <For
-          each={sortedChildren()}
-          fallback={
-            <span
-              style={{ color: "grey" }}
-              aria-label="There are no children nodes"
-              id={`children-${props.node.id}-0`}
-            >
-              {" "}
-              None
-            </span>
-          }
-        >
+        <For each={sortedChildren()}>
           {(child, idx) => (
-            <button
-              onClick={() => props.onNodeClick(props.node.id, child.id)}
-              style={{ "margin-right": "5px" }}
-              aria-label={`Child ${idx() + 1} of ${sortedChildren().length}; ${
-                child.displayName
-              }`}
+            <li
               id={`children-${props.node.id}-${idx()}`}
+              aria-label={child.displayName}
+              onClick={() => props.onNodeClick(props.node.id, child.id)}
             >
-              <span aria-hidden={true}>{child.displayName}</span>
-            </button>
+              <span aria-hidden="true">{child.displayName}</span>
+            </li>
           )}
         </For>
-      </div>
+      </ul>
     </div>
   );
 }
