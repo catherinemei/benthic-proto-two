@@ -146,7 +146,7 @@ export function TraversalOutputComponentKeyboardFlat(
 
         if (previousNodeId) {
           // used to announce undo action
-          const undoMessage = document.getElementById("hidden-focus");
+          const undoMessage = document.getElementById("undo-text");
           if (undoMessage) {
             undoMessage.focus();
           }
@@ -159,7 +159,7 @@ export function TraversalOutputComponentKeyboardFlat(
             if (newNode) {
               newNode.focus();
             }
-          }, 700);
+          }, 800);
         }
         return newHistory;
       });
@@ -245,33 +245,13 @@ export function TraversalOutputComponentKeyboardFlat(
   });
 
   return (
-    <div>
-      <button
-        id="hidden-focus"
-        style={{
-          position: "absolute",
-          width: "1px",
-          height: "1px",
-          margin: "-1px",
-          padding: "0",
-          border: "0",
-          clip: "rect(0, 0, 0, 0)",
-          overflow: "hidden",
-          "white-space": "nowrap",
-        }}
-        aria-hidden="true"
-      >
-        Pressing Undo
-      </button>
-
-      <Show when={currentNodeId()}>
-        <HypergraphNodeComponentKeyboardOnly
-          node={currentNode() as RelationNodeWithSiblings}
-          nodeGraph={hypergraphWithSiblings()}
-          onNodeClick={handleNodeClick}
-        />
-      </Show>
-    </div>
+    <Show when={currentNodeId()}>
+      <HypergraphNodeComponentKeyboardOnly
+        node={currentNode() as RelationNodeWithSiblings}
+        nodeGraph={hypergraphWithSiblings()}
+        onNodeClick={handleNodeClick}
+      />
+    </Show>
   );
 }
 
@@ -328,26 +308,6 @@ export function HypergraphNodeComponentKeyboardOnly(
 
   return (
     <div style={{ padding: "20px" }}>
-      <ul id="home" tabindex="0">
-        <For
-          each={sortAdjacents()}
-          fallback={<li style={{ color: "grey" }}>None</li>}
-        >
-          {(adjacent, idx) => (
-            <li
-              aria-label={`Node ${idx() + 1} of ${sortAdjacents().length}; ${
-                adjacent.displayName
-              }; ${adjacent.descriptionTokens?.longDescription}`}
-              id={`info-${adjacent.id}`}
-              onClick={() => props.onNodeClick(props.node.id, adjacent.id)}
-              tabindex="0"
-            >
-              <span aria-hidden="true">{`${adjacent.displayName}; ${adjacent.descriptionTokens?.longDescription}`}</span>
-            </li>
-          )}
-        </For>
-      </ul>
-
       <ul
         id="parents-group"
         aria-label={
@@ -367,6 +327,26 @@ export function HypergraphNodeComponentKeyboardOnly(
               tabIndex="0"
             >
               <span aria-hidden="true">{parent.displayName} group</span>
+            </li>
+          )}
+        </For>
+      </ul>
+
+      <ul id="home" tabindex="0">
+        <For
+          each={sortAdjacents()}
+          fallback={<li style={{ color: "grey" }}>None</li>}
+        >
+          {(adjacent, idx) => (
+            <li
+              aria-label={`Node ${idx() + 1} of ${sortAdjacents().length}; ${
+                adjacent.displayName
+              }; ${adjacent.descriptionTokens?.longDescription}`}
+              id={`info-${adjacent.id}`}
+              onClick={() => props.onNodeClick(props.node.id, adjacent.id)}
+              tabindex="0"
+            >
+              <span aria-hidden="true">{`${adjacent.displayName}; ${adjacent.descriptionTokens?.longDescription}`}</span>
             </li>
           )}
         </For>
@@ -395,6 +375,12 @@ export function HypergraphNodeComponentKeyboardOnly(
             </li>
           )}
         </For>
+      </ul>
+
+      <ul id="undo-text" tabindex="0" aria-label="Pressing Undo">
+        <span style={{ "font-weight": "bold" }} aria-hidden={true}>
+          Pressing Undo
+        </span>
       </ul>
     </div>
   );
