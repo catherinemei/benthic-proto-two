@@ -159,7 +159,7 @@ export function TraversalOutputComponentKeyboardFlat(
             if (newNode) {
               newNode.focus();
             }
-          }, 800);
+          }, 1000);
         }
         return newHistory;
       });
