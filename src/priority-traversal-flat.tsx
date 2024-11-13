@@ -307,17 +307,20 @@ export function HypergraphNodeComponentKeyboardOnly(
   });
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
+      <p style={{ "font-weight": "bold", "margin-left": "40px" }}>Belongs to</p>
       <ul
         id="parents-group"
         aria-label={
           props.node.parents.length == 0
             ? `${props.node.displayName} belongs to 0 groups`
-            : `${props.node.displayName} belongs to (${collectParentNames()})`
+            : `${props.node.displayName} belongs to ${
+                sortedParents().length
+              } groups`
         }
+        style={{ "margin-top": "-15px" }}
         tabindex="0"
       >
-        <span style={{ "font-weight": "bold" }}>Belongs to</span>
         <For each={sortedParents()}>
           {(parent, idx) => (
             <li
@@ -339,7 +342,9 @@ export function HypergraphNodeComponentKeyboardOnly(
         >
           {(adjacent, idx) => (
             <li
-              aria-label={`${adjacent.displayName}; ${adjacent.descriptionTokens?.longDescription}`}
+              aria-label={`${idx() + 1} of ${sortAdjacents().length}. ${
+                adjacent.displayName
+              }; ${adjacent.descriptionTokens?.longDescription}`}
               id={`info-${adjacent.id}`}
               onClick={() => props.onNodeClick(props.node.id, adjacent.id)}
               tabindex="0"
@@ -355,7 +360,9 @@ export function HypergraphNodeComponentKeyboardOnly(
         aria-label={
           props.node.children.length === 0
             ? `${props.node.displayName} contains no nodes`
-            : `${props.node.displayName} contains (${collectChildrenNames()})`
+            : `${props.node.displayName} contains ${
+                sortedChildren().length
+              } nodes`
         }
         tabindex="0"
       >
