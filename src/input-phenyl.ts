@@ -11,7 +11,7 @@ export const phenylHypergraph: Hypergraph = {
       shortDescription:
         "Chemical diagram for phenylalanine. Contains phenyl and alanine.",
       longDescription:
-        "Chemical diagram for phenylalanine. Contains phenyl and alanine.",
+        "Molecule containing phenyl and alanine.",
     },
     parents: [],
     children: ["1", "3"],
@@ -37,7 +37,7 @@ export const phenylHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Carboxylic Acid",
       shortDescription: "Carboxylic acid group bonded to C8 of alanine.",
-      longDescription: "Carboxylic acid group bonded to C8 of alanine.",
+      longDescription: "Group bonded to C8 of alanine.",
     },
     parents: ["1"],
     children: ["5", "6", "7"],
@@ -118,7 +118,7 @@ export const phenylHypergraph: Hypergraph = {
       shortDescription:
         "Part of carbon backbone of alanine. Bonded to carboxylic acid and amine.",
       longDescription:
-        "Part of carbon backbone of alanine. Bonded to carboxylic acid and amine.",
+        "Carbon backbone of alanine. Bonded to carboxylic acid and amine.",
     },
     parents: ["1"],
     children: [],
@@ -134,7 +134,7 @@ export const phenylHypergraph: Hypergraph = {
       shortDescription:
         "Part of carbon backbone of alanine. Bonded to C8 of alanine and C3 of phenyl.",
       longDescription:
-        "Part of carbon backbone of alanine. Bonded to C8 of alanine and C3 of phenyl.",
+        "Carbon backbone of alanine. Bonded to C8 of alanine and C3 of phenyl.",
     },
     parents: ["1"],
     children: [],

@@ -10,7 +10,7 @@ export const aspirinHypergraph: Hypergraph = {
       label: "Aspirin",
       shortDescription: "Chemical diagram for aspirin. Contains benzene ring, ester, and carboxylic acid.",
       longDescription:
-        "Chemical diagram for aspirin. Contains benzene ring, ester, and carboxylic acid.",
+        "Molecule containing benzene ring, ester, and carboxylic acid.",
     },
     parents: [],
     children: ["1", "2", "3"],
@@ -25,7 +25,7 @@ export const aspirinHypergraph: Hypergraph = {
       label: "Benzene",
       shortDescription: "Benzene ring with 6 carbons.",
       longDescription:
-        "Benzene ring with 6 carbons. Substitutions at position 1 (ester) and position 2 (carboxylic acid).",
+        "Ring with 6 carbons. Substitutions at position 1 (ester) and position 2 (carboxylic acid).",
     },
     parents: ["0"],
     children: ["4", "5", "6", "7", "8", "9"],
@@ -38,7 +38,7 @@ export const aspirinHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Ester",
       shortDescription: "Ester group bonded to C1 of benzene ring.",
-      longDescription: "Ester group bonded to C1 of benzene ring.",
+      longDescription: "Group bonded to C1 of benzene ring.",
     },
     parents: ["0"],
     children: ["4", "10", "11", "12", "13"],
@@ -53,7 +53,7 @@ export const aspirinHypergraph: Hypergraph = {
       shortDescription:
         "Carboxylic acid group bonded to C2 of benzene ring.",
       longDescription:
-        "Carboxylic acid group bonded to C2 of benzene ring.",
+        "Group bonded to C2 of benzene ring.",
     },
     parents: ["0"],
     children: ["5", "14", "15", "16"],

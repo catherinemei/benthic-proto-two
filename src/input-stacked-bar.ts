@@ -10,7 +10,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Stacked Bar Chart",
       shortDescription: "Major Trophies for some English teams.",
       longDescription:
-        "Major Trophies for some English teams. Stacked bar chart. With axes team and sum trophies.",
+        "Major Trophies for some English teams. Axes team and sum trophies.",
     },
     parents: [],
     children: ["1", "2", "22"],
@@ -24,7 +24,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "X-axis",
       shortDescription: "Contains 4 teams.",
       longDescription:
-        "Contains Arsenal, Chelsea, Liverpool, Manchester United.",
+        "Contains 4 teams.",
     },
     parents: ["0"],
     children: ["3", "4", "5", "6"],
@@ -37,7 +37,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Legend",
       shortDescription: "Contains 3 contests.",
-      longDescription: "Contains BPL, FA Cup, CL.",
+      longDescription: "Contains 3 contests.",
     },
     parents: ["0"],
     children: ["7", "8", "9"],
@@ -52,7 +52,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Arsenal",
       shortDescription: "Contains: 3 contests. Total trophies: 17.",
       longDescription:
-        "Team: Arsenal. Total trophies: 17. Contains: 3 contests. Bar representing the number of trophies won by Arsenal.",
+        "Total trophies: 17. Contains 3 contests. Bar representing trophies won by Arsenal.",
     },
     parents: ["1"],
     children: ["10", "11", "12"],
@@ -67,7 +67,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Chelsea",
       shortDescription: "Contains: 3 contests. Total trophies: 15.",
       longDescription:
-        "Team: Chelsea. Total trophies: 15. Contains: 3 contests. Bar representing the number of trophies won by Chelsea.",
+        "Total trophies: 15. Contains 3 contests. Bar representing trophies won by Chelsea.",
     },
     parents: ["1"],
     children: ["13", "14", "15"],
@@ -82,7 +82,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Liverpool",
       shortDescription: "Contains: 3 contests. Total trophies: 15.",
       longDescription:
-        "Team: Liverpool. Total trophies: 15. Contains: 3 contests. Bar representing the number of trophies won by Liverpool",
+        "Total trophies: 15. Contains 3 contests. Bar representing trophies won by Liverpool",
     },
     parents: ["1"],
     children: ["16", "17", "18"],
@@ -97,7 +97,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Manchester United",
       shortDescription: "Contains: 3 contests. Total trophies: 28.",
       longDescription:
-        "Team: Manchester United. Total trophies: 28. Contains: 3 contests. Bar representing the number of trophies won by Manchester United.",
+        "Total trophies: 28. Contains 3 contests. Bar representing trophies won by Manchester United.",
     },
     parents: ["1"],
     children: ["19", "20", "21"],
@@ -112,7 +112,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "BPL",
       shortDescription: "Contains: 4 teams. Total trophies: 22.",
       longDescription:
-        "Contest: BPL. Total trophies: 22. Contains: 4 teams. Legend grouping for the BPL competition.",
+        "Total trophies: 22. Contains 4 teams. Legend grouping for the BPL competition.",
     },
     parents: ["2"],
     children: ["10", "13", "16", "19"],
@@ -127,7 +127,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "FA Cup",
       shortDescription: "Contains: 4 teams. Total trophies: 42.",
       longDescription:
-        "Contest: FA Cup. Total trophies: 42. Contains: 4 teams. Legend grouping for the FA Cup competition.",
+        "Total trophies: 42. Contains 4 teams. Legend grouping for the FA Cup competition.",
     },
     parents: ["2"],
     children: ["11", "14", "17", "20"],
@@ -142,7 +142,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "CL",
       shortDescription: "Contains: 4 teams. Total trophies: 11.",
       longDescription:
-        "Contest: CL. Total trophies: 11. Contains: 4 teams. Legend grouping for the CL competition.",
+        "Total trophies: 11. Contains 4 teams. Legend grouping for the CL competition.",
     },
     parents: ["2"],
     children: ["12", "15", "18", "21"],
@@ -155,7 +155,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Arsenal BPL",
       shortDescription: "Trophies: 3.",
-      longDescription: "Team: Arsenal. Contest: BPL. Trophies: 3. Data point.",
+      longDescription: "Trophies: 3. Data point.",
     },
     parents: ["3", "7"],
     children: [],
@@ -169,7 +169,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Arsenal FA Cup",
       shortDescription: "Trophies: 14.",
       longDescription:
-        "Team: Arsenal. Contest: FA Cup. Trophies: 14. Data point.",
+        "Trophies: 14. Data point.",
     },
     parents: ["3", "8"],
     children: [],
@@ -182,7 +182,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Arsenal CL",
       shortDescription: "Trophies: 0.",
-      longDescription: "Team: Arsenal. Contest: CL. Trophies: 0. Data point.",
+      longDescription: "Trophies: 0. Data point.",
     },
     parents: ["3", "9"],
     children: [],
@@ -195,7 +195,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Chelsea BPL",
       shortDescription: "Trophies: 5.",
-      longDescription: "Team: Chelsea. Contest: BPL. Trophies: 5. Data point.",
+      longDescription: "Trophies: 5. Data point.",
     },
     parents: ["4", "7"],
     children: [],
@@ -209,7 +209,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Chelsea FA Cup",
       shortDescription: "Trophies: 8.",
       longDescription:
-        "Team: Chelsea. Contest: FA Cup. Trophies: 8. Data point.",
+        "Trophies: 8. Data point.",
     },
     parents: ["4", "8"],
     children: [],
@@ -222,7 +222,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Chelsea CL",
       shortDescription: "Trophies: 2.",
-      longDescription: "Team: Chelsea. Contest: CL. Trophies: 2. Data point.",
+      longDescription: "Trophies: 2. Data point.",
     },
     parents: ["4", "9"],
     children: [],
@@ -236,7 +236,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Liverpool BPL",
       shortDescription: "Trophies: 1.",
       longDescription:
-        "Team: Liverpool. Contest: BPL. Trophies: 1. Data point.",
+        "Trophies: 1. Data point.",
     },
     parents: ["5", "7"],
     children: [],
@@ -250,7 +250,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Liverpool FA Cup",
       shortDescription: "Trophies: 8.",
       longDescription:
-        "Team: Liverpool. Contest: FA Cup. Trophies: 8. Data point.",
+        "Trophies: 8. Data point.",
     },
     parents: ["5", "8"],
     children: [],
@@ -263,7 +263,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
     descriptionTokens: {
       label: "Liverpool CL",
       shortDescription: "Trophies: 6.",
-      longDescription: "Team: Liverpool. Contest: CL. Trophies: 6. Data point.",
+      longDescription: "Trophies: 6. Data point.",
     },
     parents: ["5", "9"],
     children: [],
@@ -278,7 +278,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Manchester United BPL",
       shortDescription: "Trophies: 13.",
       longDescription:
-        "Team: Manchester United. Contest: BPL. Trophies: 13. Data point.",
+        "Trophies: 13. Data point.",
     },
     parents: ["6", "7"],
     children: [],
@@ -293,7 +293,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Manchester United FA Cup",
       shortDescription: "Trophies: 12.",
       longDescription:
-        "Team: Manchester United. Contest: FA Cup. Trophies: 12. Data point.",
+        "Trophies: 12. Data point.",
     },
     parents: ["6", "8"],
     children: [],
@@ -308,7 +308,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Manchester United CL",
       shortDescription: "Trophies: 3.",
       longDescription:
-        "Team: Manchester United. Contest: CL. Trophies: 3. Data point.",
+        "Trophies: 3. Data point.",
     },
     parents: ["6", "9"],
     children: [],
@@ -323,7 +323,7 @@ export const stackedBarChartHypergraph: Hypergraph = {
       label: "Y-axis",
       shortDescription: "Y-axis. Count trophies.",
       longDescription:
-        "Y-axis. Label: count trophies. Values range from 0 to 30 on a numerical scale.",
+        "Label: count trophies. Values range from 0 to 30 on a numerical scale.",
     },
     parents: ["0"],
     children: [],

@@ -339,9 +339,7 @@ export function HypergraphNodeComponentKeyboardOnly(
         >
           {(adjacent, idx) => (
             <li
-              aria-label={`Node ${idx() + 1} of ${sortAdjacents().length}; ${
-                adjacent.displayName
-              }; ${adjacent.descriptionTokens?.longDescription}`}
+              aria-label={`${adjacent.displayName}; ${adjacent.descriptionTokens?.longDescription}`}
               id={`info-${adjacent.id}`}
               onClick={() => props.onNodeClick(props.node.id, adjacent.id)}
               tabindex="0"
